@@ -1,75 +1,133 @@
-body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+body {
+    background-color: rgb(207, 207, 206);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-background: rgb(2,0,36);background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(7,58,153,1) 0%, rgba(0,212,255,1) 100%);}
-.container{
-    background: rgb(2,0,36);background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    border-radius: 10px;
+}
+
+.container {
+    background-color: white;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px -1px 69px -15px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    animation: cardAnimation 1s ease-in-out;
+}
+
+@keyframes cardAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: rgb(50, 16, 82);
+    font-size: 32px;
+}
+
+h2 {
+    color: rgb(50, 16, 82);
+    margin-bottom: 20px;
+}
+
+.poll {
+    margin-top: 20px;
+}
+
+.options {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: glow  1s infinite alternate;
 }
-textarea{
-width: 500px;
-height: 320px;
-margin: 10px auto;
-display: block;
-font-size: 24px;
-padding: 24px;
-color:black;
-border: 1px #ddd;
-border-radius: 10px;
-resize: none;
-animation: SlideIn 1s ease;
+
+.option {
+    margin-bottom: 20px; 
 }
-@keyframes SlideIn {
-    from{
-opacity: 0;
-transform: translateY(-20px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+input[type="radio"] {
+    display: none;
 }
-button{
-    padding: 15px 30px;
-    background-color: rgb(45, 14, 83);
-    width: 500px;
-    color: #fff;
-    border: none;
+
+label {
+    display: inline-block;
+    background-color: #a5a5a5;
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
-    transition: background-color .3s ease;
+    transition: background-color 0.3s;
 }
-button:hover{
-    background-color: blue;
+
+.option:hover label {
+    background-color: rgb(50, 16, 82);
+    color: #fafafa;
 }
-#result{
-    font-size: 20px;
+
+.option input[type="radio"]:checked + label {
+    background-color: rgb(50, 16, 82);
+    color: #fafafa;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    width: 300px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(50, 16, 82);
+    color: #fafafa;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgb(68, 31, 102);
+}
+
+#result {
     margin-top: 20px;
-    color: #ddd;
-    animation: glow  1s infinite alternate;
+    font-size: 20px;
+    color: rgb(68, 31, 102);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-@keyframes glow {
-    from{
-box-shadow: 10px 10px 379px -26px rgba(0,0,0,0.75);-webkit-box-shadow: 10px 10px 379px -26px rgba(0,0,0,0.75);-moz-box-shadow: 10px 10px 379px -26px rgba(0,0,0,0.75);
-    }
-    to{
-box-shadow: 10px 10px 37px -16px rgba(0,0,0,0.75);-webkit-box-shadow: 10px 10px 37px -16px rgba(0,0,0,0.75);-moz-box-shadow: 10px 10px 37px -16px rgba(0,0,0,0.75);    }
+
+.option-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 200px;
+    margin-bottom: 10px;
+    width: 100%;
+    
 }
-h1{
-    color:aliceblue;
-    font-size: 36px;
-    margin-bottom: 20px;
+
+.option-text {
+    flex: 1;
+    color: rgb(50, 16, 82);
+}
+
+.bar {
+    height: 100%;
+    background-color: rgb(68, 31, 102);
+    width: 0%; 
+    transition: width 0.5s ease-in-out;
+}
+
+.percentage {
+    flex: none;
+    margin-left: 10px;
+    font-weight: bold;
+    color: rgb(68, 31, 102);
+    z-index: 1;
+    position: relative;
 }
