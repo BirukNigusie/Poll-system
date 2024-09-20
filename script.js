@@ -42,3 +42,4 @@ function displayResult(){
 function getTotalVotes(){
     return options.reduce((total, option) => total + option.votes, 0);
 }
+displayResult();
